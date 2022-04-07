@@ -36,15 +36,17 @@ All is hashed
 - I, an AI developer, should be able to access the data anonymized.
 
 
-
 ## Achitect
 - Peer to Peer Network support end-to-end communication.
 - Local database to store data (e.g., SQLite).
 
+## Results
+Screenshot below shows chat from client's side. 
+
+<img src="pictures/client.PNG" width=500>
 
 
-
-## Getting started
+## Database Schema
 
 
 
