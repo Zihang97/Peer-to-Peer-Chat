@@ -47,7 +47,7 @@ Screenshot below shows chat from client's side.
 
 
 ## Database Schema
-Each client of peer-to-peer chat system has a local database belong to him uniquely. User table is like an address book, which stores his contacts and corresponding ip addresses. Receiver table stores all the messages received. Sender table stores all the messages he sent or want to send. Compared to Receiver table, sender table has a unique column `status` with two values `pending` and `sent`. If the client doesn't want to be discovered, he can still send messages but all these messages will be stored with status `pending`. Next time when he wants to be discovered, all pending messages will be sent and then status `pending` will be change to `sent`.
+Each client of peer-to-peer chat system has a local database belong to him uniquely. ***User*** table is like an address book, which stores his contacts and corresponding ip addresses. ***Receiver*** table stores all the messages received. ***Sender*** table stores all the messages he sent or want to send. Compared to ***Receiver*** table, ***Sender*** table has a unique column `status` with two values `pending` and `sent`. If the client doesn't want to be discovered, he can still send messages but all these messages will be stored with status `pending`. Next time when he wants to be discovered, all pending messages will be sent and then status `pending` will be change to `sent`.
 
 ### User table
 | Field  | Type   |Null | Key | Default | Extra |
