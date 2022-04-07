@@ -75,6 +75,3 @@ Each client of peer-to-peer chat system has a local database belong to him uniqu
 |message| varchar(40)   | YES | | NULL| |
 |time| varchar(40)   | YES | | NULL| |
 
-
-
-## To do
