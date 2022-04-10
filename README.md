@@ -1,9 +1,9 @@
 # EC530_Peer-to-Peer-Chat
 
-This project implement a Peer-to-Peer command-line chat in python. 
+This project implements a Peer-to-Peer command-line chat in python. 
+We create a P2P Chat server based on the TCP system and allow multiple clients to connect to it using a client-side script. Clients use the socket port to communicate with the server socket. 
 
-Set up a P2P Chat server and allow multiple clients to connect to it using a client-side script. 
-Clients use the socket port to communicate with the server socket. 
+
 
 ## MVP
 
@@ -38,15 +38,40 @@ All is hashed
 
 ## Achitect
 - Peer to Peer Network support end-to-end communication.
-- Local database to store data (e.g., SQLite).
+
+- Local database to store data (e.g.,MySQL).
+
+  
+
+## Feature
+
+##### Multi-Processing
+
+Every user connecting to the server creates a separate thread and communicates with the server on an individual thread based on the socket instance. In each thread, the server awaits a message and sends that message to other users currently on the chat. 
+
+##### Asynchronous 
+
+Asynchronous messaging allows users to send messages to recipients not currently online but received once online.
+
+##### History
+
+Each user has a local database to store their chat history so that they can display or search chat history.
+
+
 
 ## Results
+Screenshot below shows chat from server's side.
+
+<img src="pictures/server.PNG" width=500>
+
 Screenshot below shows chat from client's side. 
 
 <img src="pictures/client.PNG" width=500>
 
 
+
 ## Database Schema
+
 Each client of peer-to-peer chat system has a local database belong to him uniquely. ***User*** table is like an address book, which stores his contacts and corresponding ip addresses. ***Receiver*** table stores all the messages received. ***Sender*** table stores all the messages he sent or want to send. Compared to ***Receiver*** table, ***Sender*** table has a unique column `status` with two values `pending` and `sent`. If the client doesn't want to be discovered, he can still send messages but all these messages will be stored with status `pending`. Next time when he wants to be discovered, all pending messages will be sent and then status `pending` will be change to `sent`.
 
 ### User table
