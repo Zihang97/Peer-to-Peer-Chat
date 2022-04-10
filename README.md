@@ -62,7 +62,7 @@ Each user has a local database to store their chat history so that they can disp
 ## Results
 Screenshot below shows chat from server's side.
 
-<img src="pictures/server.PNG" width=500>
+<img src="pictures/server.png" width=500>
 
 Screenshot below shows chat from client's side. 
 
