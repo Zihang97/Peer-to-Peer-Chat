@@ -37,7 +37,7 @@ All is hashed
 
 
 ## Achitect
-- Peer to Peer Network support end-to-end communication.
+- Peer to Peer TCP-based network supports end-to-end communication.
 
 - Local database to store data (e.g.,MySQL).
 
