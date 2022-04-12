@@ -72,13 +72,35 @@ Each user has a local database to store their chat history so that they can disp
 
 
 ## Results
-Screenshot below shows chat from server's side.
+The screenshot below shows the concurrent chat from the server's side. 
 
-<img src="pictures/server.png" width=350>
+<img src="pictures/server.png" width=500>
 
-Screenshot below shows chat from client's side. 
 
-<img src="pictures/client.PNG" width=500>
+
+Screenshot below shows set up connection from client's side. 
+
+<img src="pictures/connect.png" width=500>
+
+
+
+The screenshot below shows the chat from Client One.
+
+<img src="pictures/client1.png" width=500>
+
+
+
+The screenshot below shows the chat from Client Two.
+
+<img src="pictures/client2.png" width=500>
+
+
+
+The screenshot below shows the chat from Client Three. 
+
+<img src="pictures/client3.png" width=500>
+
+
 
 
 
