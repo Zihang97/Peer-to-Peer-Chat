@@ -78,7 +78,7 @@ The screenshot below shows the concurrent chat from the server's side.
 
 
 
-Screenshot below shows set up connection from client's side. 
+The screenshot below shows how to set up a p2p connection from the client's side.
 
 <img src="pictures/connect.png" width=500>
 
