@@ -2,7 +2,7 @@ import socket
 import selectors
 import types
 import sys
-from database import *
+from Database.database import *
 
 localIP = "0.0.0.0"
 localPort = 20001
