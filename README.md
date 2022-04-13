@@ -1,87 +1,35 @@
 # EC530_Peer-to-Peer-Chat
-
 This project implements a Peer-to-Peer command-line chat in python. 
 We create a P2P Chat server based on the TCP system and allow multiple clients to connect to it using a client-side script. Clients use the socket port to communicate with the server socket. 
 
-
-
-## MVP
-
-#### Discovery
-
-Clients register by making themselves findable by others (as in Whatsapp).
-
-#### Session Initiation 
-
-Send a message to users who you want to connect with.
-
-#### Communication and Synchronization
-
-Clients can live-chat with any of their friends who is available now. For users who are not available (offline),  clients can write messages stored on their own ends. The data for offline users will be synchronized when both users are discoverable.
-
-#### Security
-
-All is hashed
-
-
-
-## User stories 
-
-- I, the client, should be able to send messages to each other.
-
-- I, the client, should be able to see contacts and choose one or many to chat with. 
-
-- I, the client, should be able to block other users .
-
-- I, the client, should be able to see the chat history. 
-
-- I, the client, should be able to upload images or files to others.
-
-- I, the client, should be able to read the transcription of the voice messages and should be able to search them.
-
-- I, an AI developer, should be able to access the data anonymized.
-
-  
-
-
-## Achitecture
-- TCP Peer to Peer network supports end-to-end communication.
-
-- Local database to store data (e.g.,MySQL).
-
-  
-
 ## Feature
+- **Multi-Processing:** Users can chat with multi-person concurrently by multi-threading. Every user connecting to the server creates a separate thread and communicates with the server on an individual thread based on the socket instance. In each thread, the server awaits a message and sends that message to other users currently on the chat. 
+- **Discovery and mute:** Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.
+- **Asynchronous:** Asynchronous messaging allows users to send messages to recipients not currently online but received once online.
+- **History:** Each user has a local database to store their chat history so that they can display or search chat history.
 
-##### Multi-Processing
+## Usage
+### Server
+If you want to be discovered and connected by others, you can run file `server.py` and become a server, which will set up a local server socket for you to receive connection from anyone who know your ip and port.  
+```
+$ python3 server.py
+```
+### Client
+If you want to connect others, no matter you want to be discovered or not, you can run file `client.py` and become a client, it will give you options to be discovered or not. Below is an interface screenshot from client side.  
+```
+$ python3 client.py
+```
+<img src="pictures/connect.png" width=500>  
 
-Users can chat with multi-person concurrently by multi-threading. Every user connecting to the server creates a separate thread and communicates with the server on an individual thread based on the socket instance. In each thread, the server awaits a message and sends that message to other users currently on the chat. 
+If you want to be discovered, answer 'yes' to the first question, then enter the name of person you want to talk to. If the person's information is already stored in the local database, your client socket will connect that person's socket automatically and you can begin chatting. But if the person name you enter is a new name not stored, you will be asked to enter his ip address and corresponding port. After that your socket will build connection and you can begin chatting. If your socket can't build connection, which means, the person you choose don't want to be discovered, all the messages you send will be stored in your local database and marked 'pending'. Next time when you're online, all these pending messages will be sent together automatically.
 
-##### Discovery and mute
-
-Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.
-
-##### Asynchronous 
-
-Asynchronous messaging allows users to send messages to recipients not currently online but received once online.
-
-##### History
-
-Each user has a local database to store their chat history so that they can display or search chat history.
-
+If you don't want to be discovered, answer 'no' to the first question. You can still choose a person to talk to but all the messages you send will be stored in your local database and marked 'pending'. Next time when you want to be discovered, all these pending messages will be sent together automatically.
 
 
 ## Results
 The screenshot below shows the concurrent chat from the server's side. 
 
-<img src="pictures/server.png" width=500>
-
-
-
-The screenshot below shows how to set up a p2p connection from the client's side.
-
-<img src="pictures/connect.png" width=500>
-
+<img src="pictures/server.jpg" width=800>
 
 
 The screenshot below shows the chat from Client One.
@@ -92,7 +40,7 @@ The screenshot below shows the chat from Client One.
 
 The screenshot below shows the chat from Client Two.
 
-<img src="pictures/client2.png" width=500>
+<img src="pictures/client2.png" width=300>
 
 
 
