@@ -23,7 +23,14 @@ with socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM) as clientsoc:
 			create_user(name, ip, port)
 
 		msgs = msg_sending()
-		clientsoc.connect((ip, int(port)))
+		try:
+			clientsoc.connect((ip, int(port)))
+		except:
+			print('The person you want to talk is offline. Please leave messages:')
+			for line in sys.stdin:
+				insert_sender(name, line, 'pending')
+			break
+			
 		for msg in msgs:
 			clientsoc.send(msg.encode())
 
