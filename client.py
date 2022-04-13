@@ -2,7 +2,7 @@ import socket
 import sys
 import selectors
 import types
-from database import *
+from Database.database import *
 
 # serverAddressPort = ("192.168.50.31", 20001)
 bufferSize = 1024
