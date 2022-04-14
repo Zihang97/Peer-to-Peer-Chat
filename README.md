@@ -10,7 +10,7 @@ If you have any question please feel free to contact them.
 
 ## Feature
 - **Concurrency:** Users can chat with multiple persons concurrently. We use `selectors` module to monitor every socket connected.  
-- **Discovery and Mute:** Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.  
+- **Discovery and Muteness:** Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.  
 - **Distributed Storage:** Data are distributed and securely stored on client's local databases.  
 - **History:** Usesrs can display or search chat history from their local databases.  
 
