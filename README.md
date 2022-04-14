@@ -14,13 +14,14 @@ To use this peer-to-peer chat application, you have to install MySQL first and c
 ```
 $ python Database/build_tables.py
 ```
-
+(Note: This application can't run on Windows. We use `selectors` module which can't monitor file objects on Windows. Other systems like Unix and Mac don't have such problem.)
 
 ### Server
 If you want to be discovered and connected by others, you can run file `server.py` and become a server, which will set up a local server socket for you to receive connection from anyone who know your ip and port.  
 ```
 $ python3 server.py
 ```
+
 ### Client
 If you want to connect others, no matter you want to be discovered or not, you can run file `client.py` and become a client, it will give you options to be discovered or not. Below is an interface screenshot from client side.  
 ```
@@ -33,7 +34,9 @@ If you want to be discovered, answer 'yes' to the first question, then enter the
 If you don't want to be discovered, answer 'no' to the first question. You can still choose a person to talk to but all the messages you send will be stored in your local database and marked 'pending'. Next time when you want to be discovered, all these pending messages will be sent together automatically.
 
 
-## Results
+## Example Displaying
+Here is an example we provide to show how the application works. We use two computers under different networks to do the test. In the example three chats happened at the same time.
+
 The screenshot below shows the concurrent chat from the server's side. 
 
 <img src="pictures/server.jpg" width=800>
