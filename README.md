@@ -1,12 +1,18 @@
 # EC530_Peer-to-Peer-Chat
-This project implements a Peer-to-Peer command-line chat in python. 
-We create a P2P Chat server based on the TCP system and allow multiple clients to connect to it using a client-side script. Clients use the socket port to communicate with the server socket. 
+This project implements a peer-to-peer chat application in python. 
+
+P2P Chat allows multiple users chatting at the same time. There is no central server for this application. Each user has its own database and can serve as a individual server, which greatly improves robustness. 
+
+Authors:   
+jzh15@bu.edu  
+evezhang@bu.edu  
+If you have any question please feel free to contact them.
 
 ## Feature
-- **Multi-Processing:** Users can chat with multi-person concurrently by multi-threading. Every user connecting to the server creates a separate thread and communicates with the server on an individual thread based on the socket instance. In each thread, the server awaits a message and sends that message to other users currently on the chat. 
-- **Discovery and mute:** Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.
-- **Asynchronous:** Asynchronous messaging allows users to send messages to recipients not currently online but received once online.
-- **History:** Each user has a local database to store their chat history so that they can display or search chat history.
+- **Concurrency:** Users can chat with multiple persons concurrently. We use `selectors` module to monitor every socket connected.  
+- **Discovery and Mute:** Users can decide their state of discovery. When a user is discovered, clients can send them any updates or new chats. When a user is not discovered, the messages sent to him are pending, so users are able to block other users.  
+- **Distributed Storage:** Data are distributed and securely stored on client's local databases.  
+- **History:** Usesrs can display or search chat history from their local databases.  
 
 ## Usage
 ### Environment Setup
@@ -34,31 +40,26 @@ If you want to be discovered, answer 'yes' to the first question, then enter the
 If you don't want to be discovered, answer 'no' to the first question. You can still choose a person to talk to but all the messages you send will be stored in your local database and marked 'pending'. Next time when you want to be discovered, all these pending messages will be sent together automatically.
 
 
-## Example Displaying
-Here is an example we provide to show how the application works. We use two computers under different networks to do the test. In the example three chats happened at the same time.
+## Example Display
+Here is an example we provide to show how the application works. We use two computers under different networks to do the test. In this example three chats happened at the same time.
 
 The screenshot below shows the concurrent chat from the server's side. 
 
 <img src="pictures/server.jpg" width=800>
 
+From image above you can find the server is talking to three clients at the same time. These three clients have the same ip address but different ports (because we only have two computers, one for server and one for clients). When you send messages from server side, one thing need noting is that you need to specify ip and port ahead, i.e. `<ip> <port> <msg>`
 
-The screenshot below shows the chat from Client One.
+The screenshot below shows the chat from client one.
 
 <img src="pictures/client1.png" width=500>
 
-
-
-The screenshot below shows the chat from Client Two.
+The screenshot below shows the chat from client two.
 
 <img src="pictures/client2.png" width=300>
 
-
-
-The screenshot below shows the chat from Client Three. 
+The screenshot below shows the chat from client three. 
 
 <img src="pictures/client3.png" width=500>
-
-
 
 
 
