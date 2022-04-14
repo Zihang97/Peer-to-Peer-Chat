@@ -45,9 +45,10 @@ Here is an example we provide to show how the application works. We use two comp
 
 The screenshot below shows the concurrent chat from the server's side. 
 
-<img src="pictures/server.jpg" width=800>
+<img src="pictures/server.jpg" width=600>
 
-From image above you can find the server is talking to three clients at the same time. These three clients have the same ip address but different ports (because we only have two computers, one for server and one for clients). When you send messages from server side, one thing need noting is that you need to specify ip and port ahead, i.e. `<ip> <port> <msg>`
+From image above you can find the server is talking to three clients at the same time. These three clients have the same ip address but different ports (because we only have two computers, one for server and one for clients). When you send messages from server side, one thing need noting is that you need to specify ip and port ahead, i.e. using format below  
+```<ip> <port> <msg>```
 
 The screenshot below shows the chat from client one.
 
