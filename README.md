@@ -9,6 +9,13 @@ We create a P2P Chat server based on the TCP system and allow multiple clients t
 - **History:** Each user has a local database to store their chat history so that they can display or search chat history.
 
 ## Usage
+### Environment Setup
+To use this peer-to-peer chat application, you have to install MySQL first and create a database `peer_to_peer_chat`. Then run the following command to create three tables we need.
+```
+$ python Database/build_tables.py
+```
+
+
 ### Server
 If you want to be discovered and connected by others, you can run file `server.py` and become a server, which will set up a local server socket for you to receive connection from anyone who know your ip and port.  
 ```
