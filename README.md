@@ -1,4 +1,4 @@
-# EC530_Peer-to-Peer-Chat
+# Peer-to-Peer-Chat
 This project implements a peer-to-peer chat application in python. 
 
 P2P Chat allows multiple users chatting at the same time. There is no central server for this application. Each user has its own database and can serve as a individual server, which greatly improves robustness. 
